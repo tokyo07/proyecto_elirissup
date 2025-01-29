@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+    <!-- Enlace al archivo de manifiesto -->
+<link rel="manifest" href="manifest.json">
+
+<!-- Icono para la PWA -->
+<link rel="icon" type="image/png" href="icon-192x192.png">
+
+<!-- Color de la barra de estado en dispositivos móviles -->
+<meta name="theme-color" content="#3498db">
+
+<!-- Registrar el Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then((registration) => {
+          console.log('Service Worker registrado con éxito:', registration);
+        })
+        .catch((error) => {
+          console.log('Error al registrar el Service Worker:', error);
+        });
+    });
+  }
+</script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Enlaces LIRIS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --main-color: #2c3e50;
+            --accent-color: #3498db;
+        }
+        body {
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+        .card-link {
+            transition: transform 0.2s;
+            border-left: 4px solid var(--accent-color);
+        }
+        .card-link:hover {
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+        .section-title {
+            color: var(--main-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+        .floating-menu {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+        }
+        .accordion-button {
+            background-color: transparent;
+            color: var(--main-color);
+            font-weight: bold;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: transparent;
+            color: var(--main-color);
+        }
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Menú Flotante -->
+<div class="floating-menu">
+    <button class="btn btn-primary btn-lg rounded-circle shadow" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainMenu">
+        <i class="fas fa-bars"></i>
+    </button>
+</div>
+
+<!-- Offcanvas Menu -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mainMenu">
+    <div class="offcanvas-header bg-primary text-white">
+        <h5 class="offcanvas-title">Menú Principal</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+        <div class="list-group list-group-flush">
+            <a href="http://intranet.liris.com.ec/_layouts/15/start.aspx#/SitePages/Inicio.aspx" class="list-group-item list-group-item-action d-flex align-items-center" target="_blank">
+                <i class="fas fa-newspaper me-3"></i>NOTI-LIRIS
+            </a>
+            <a href="https://soporte.liris.com.ec/dms/default.aspx?AppId=1" class="list-group-item list-group-item-action d-flex align-items-center" target="_blank">
+                <i class="fas fa-tools me-3"></i>WF SOPORTE
+            </a>
+            <a href="https://trello.com/b/M4iRKzb0/liris-soporte" class="list-group-item list-group-item-action d-flex align-items-center" target="_blank">
+                <i class="fas fa-chart-bar me-3"></i>TRELLO
+            </a>
+            <a href="https://web.whatsapp.com/" class="list-group-item list-group-item-action d-flex align-items-center" target="_blank">
+                <i class="fas fa-comments me-3"></i>Whatsapp
+            </a>
+            <a href="https://open.spotify.com/intl-es" class="list-group-item list-group-item-action d-flex align-items-center" target="_blank">
+                <i class="fas fa-music me-3"></i>Spotify
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Contenido Principal -->
+<main class="container py-4">
+    <!-- Sección de Enlaces Retail -->
+    <div class="accordion mb-5" id="retailAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="retailHeading">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#retailCollapse" aria-expanded="true" aria-controls="retailCollapse">
+                    <i class="fas fa-store me-2"></i>Enlaces Retail
+                </button>
+            </h2>
+            <div id="retailCollapse" class="accordion-collapse collapse show" aria-labelledby="retailHeading" data-bs-parent="#retailAccordion">
+                <div class="accordion-body p-0">
+                    <div class="list-group">
+                        <a href="http://reportes.liris.com.ec/Reports/Pages/Report.aspx?ItemPath=%2fRetail%2fApertura+y+Cierre+de+Local" class="list-group-item list-group-item-action" target="_blank">
+                            <i class="fas fa-door-open me-3"></i>Apertura y Cierre
+                        </a>
+                        <a href="http://helpdesk.liris.com.ec/soporte/procesos/monitor.aspx" class="list-group-item list-group-item-action" target="_blank">
+                            <i class="fas fa-file-alt me-3"></i>Monitor de Facturas
+                        </a>
+                        <a href="http://mobile.liris.com.ec/delportal/liris-manager/" class="list-group-item list-group-item-action" target="_blank">
+                            <i class="fas fa-truck me-3"></i>Asignación de Pedidos
+                        </a>
+                        <a href="http://192.168.127.240/WebAppHandHeld" class="list-group-item list-group-item-action" target="_blank">
+                            <i class="fas fa-mobile-alt me-3"></i>Handhelp Web
+                        </a>
+                        <a href="http://186.4.159.84:8000/aryp-servicheck-intranet/" class="list-group-item list-group-item-action" target="_blank">
+                            <i class="fas fa-check-circle me-3"></i>Servicheck
+                        </a>
+                        <a href="https://liris.seedbilling.ec/liris" class="list-group-item list-group-item-action" target="_blank">
+                            <i class="fas fa-file-invoice me-3"></i>Seedbilling
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Central Telefónica -->
+    <div class="accordion mb-5" id="phoneAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="phoneHeading">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#phoneCollapse" aria-expanded="true" aria-controls="phoneCollapse" aria-label="Toggle Central Telefónica">
+                    <i class="fas fa-database me-2"></i>Central Telefónica y Nas
+                </button>
+            </h2>
+            <div id="phoneCollapse" class="accordion-collapse collapse show" aria-labelledby="phoneHeading" data-bs-parent="#phoneAccordion">
+                <div class="accordion-body p-0">
+                    <div class="list-group">
+                        <a href="https://192.168.131.2:8089" class="list-group-item list-group-item-action" target="_blank" aria-label="Acceder a la central telefónica principal">
+                            <i class="fas fa-phone me-3"></i>Principal
+                        </a>
+                        <a href="https://192.168.121.20:8089" class="list-group-item list-group-item-action" target="_blank" aria-label="Acceder a la central telefónica secundaria">
+                            <i class="fas fa-phone-volume me-3"></i>Secundaria
+                        </a>
+                        <div class="list-group-item">
+                            <div class="input-group mt-2">
+                                <input type="password" class="form-control password-field" value="b37Jn2!@" readonly>
+                                <button class="btn btn-outline-secondary toggle-password" type="button">Mostrar</button>
+                            </div>
+                        </div>
+                        <a href="http://192.168.127.92:8080/cgi-bin/" class="list-group-item list-group-item-action" target="_blank" aria-label="Acceder a Liris NAS Principal">
+                            <i class="fas fa-server me-3"></i>Liris NAS Principal
+                        </a>
+                        <a href="http://192.168.127.93:8080/cgi-bin/" class="list-group-item list-group-item-action" target="_blank" aria-label="Acceder a Liris NAS Secundaria">
+                            <i class="fas fa-server me-3"></i>Liris NAS Secundaria
+                        </a>
+                        <div class="list-group-item">
+                            <div class="input-group mt-2">
+                                <input type="password" class="form-control password-field" value="liris12345" readonly>
+                                <button class="btn btn-outline-secondary toggle-password" type="button">Mostrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Sección de Otros Enlaces -->
+    <div class="accordion" id="otherAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="otherHeading">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#otherCollapse" aria-expanded="true" aria-controls="otherCollapse">
+                    <i class="fas fa-link me-2"></i>Enlaces Sistemas
+                </button>
+            </h2>
+            <div id="otherCollapse" class="accordion-collapse collapse show" aria-labelledby="otherHeading" data-bs-parent="#otherAccordion">
+                <div class="accordion-body p-0">
+                    <div class="list-group">
+                        <a href="http://192.168.127.40/zabbix.php?action=dashboard.view" class="list-group-item list-group-item-action" target="_blank">
+                            <i class="fas fa-chart-line me-3"></i>Zabbix
+                        </a>
+                        <a href="https://docs.google.com/spreadsheets/d/1jk815yX0uWtleHP1kLnreGnYuAJz25A4JQ-0vaGIPdQ/edit?gid=0#gid=0" class="list-group-item list-group-item-action" target="_blank">
+                            <i class="fas fa-envelope me-3"></i>Correos
+                        </a>
+                        <a href="https://docs.google.com/spreadsheets/d/1F1RbkM60FctIiTBAfmmOeVLDkUAQ7-m-tOp-aluHy5g/edit?usp=sharing" class="list-group-item list-group-item-action" target="_blank">
+                            <i class="fas fa-tasks me-3"></i>Gestión Operativa
+                        </a>
+                        <a href="https://mail.liris.com.ec/webmail/login/" class="list-group-item list-group-item-action" target="_blank">
+                            <i class="fas fa-envelope-open-text me-3"></i>Web Mail
+                        </a>
+                        <a href="https://telcograf.telconet.ec/tMhBbrK5ua9aLY=/login" class="list-group-item list-group-item-action" target="_blank">
+                            <i class="fas fa-chart-bar me-3"></i>Grafana
+                        </a>
+                        <a href="http://reportes.liris.com.ec/CheckList/login.aspx" class="list-group-item list-group-item-action" target="_blank">
+                            <i class="fas fa-clipboard-check me-3"></i>CheckList
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Función para alternar la visibilidad de la contraseña
+    document.querySelectorAll('.toggle-password').forEach(button => {
+        button.addEventListener('click', function () {
+            const passwordField = this.previousElementSibling;
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                this.textContent = "Ocultar";
+            } else {
+                passwordField.type = "password";
+                this.textContent = "Mostrar";
+            }
+        });
+    });
+</script>
+</body>
+</html>
