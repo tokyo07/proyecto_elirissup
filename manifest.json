@@ -14,7 +14,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/",
+  "start_url": "https://tokyo07.github.io/proyecto_elirissup/",
   "background_color": "#2c3e50",
   "display": "standalone",
   "scope": "/",
